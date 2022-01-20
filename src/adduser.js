@@ -3,24 +3,26 @@ import logo from './signup.PNG'
 import {useMutation} from '@apollo/client'
 import {CREATE_USER} from "./mutations"
 
+
 function Adduser() {
-    const[inputField,setInputField]=useState({
+    const[details,setDetails]=useState({ 
         email:'',
-        username:'',
-        password:''
+        Username:'',
+        Password:''
     })
 
     const [createUser,{error}]= useMutation(CREATE_USER)
+    
 
     const inputHandler = (e)=>{
-        setInputField({
-            ...inputField,[e.target.name]:e.target.value
+        setDetails({
+            ...details,[e.target.name]:e.target.value
         })
     }
     const formSubmit=()=>{
-        console.log(inputField)
+        console.log(details)
         createUser({
-            variables: inputField
+            variables: details
         })
     }
     
@@ -31,9 +33,9 @@ function Adduser() {
             </div>
             <div className='regdiv2'>
                 <h1>ADD USERS DETAILS</h1>
-                <input type="email" name='email' placeholder=" Email@account" onChange={inputHandler} value={inputField.email}/>
-                <input type=" text" name='username' placeholder="Username" onChange={inputHandler} value={inputField.username}/>
-                <input type="password" name='password' placeholder=" Password" onChange={inputHandler} value={inputField.password} />
+                <input type="email" name='email' placeholder=" Email@account" onChange={inputHandler} value={details.email}/>
+                <input type=" text" name='Username' placeholder="Username" onChange={inputHandler} value={details.Username}/>
+                <input type="password" name='Password' placeholder=" Password" onChange={inputHandler} value={details.Password} />
                 <button onClick={formSubmit}>SUBMIT</button><br></br>
             </div>
         </div>

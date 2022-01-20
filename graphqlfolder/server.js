@@ -20,6 +20,6 @@ async function startServer(){
      res.send("Hello From Apollo Server");
  })
 mongoose.connect('mongodb+srv://Divya9072:Divimg9072@cluster0.dvcx3.mongodb.net/usertable_details?retryWrites=true&w=majority',()=>console.log("DB Connected"));
- app.listen(4000,()=>console.log("Apollo Server Is Running"))
+ app.listen(4001,()=>console.log("Apollo Server Is Running"))
 }
 startServer();

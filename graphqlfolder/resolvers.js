@@ -12,7 +12,7 @@ const resolvers={
     Mutation:{
 
         createPost:async(parent,args,context,info)=>{
-            const{Username,Password,email}=args.post;
+            const{Username,Password,email}=args;
             const demo=new Demo({Username,Password,email})
             await demo.save();
             return demo;

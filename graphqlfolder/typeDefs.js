@@ -9,18 +9,23 @@ type Demo{
 
 type Query{
     hello:String
-
     getAllPosts:[Demo]
-}
-input PostInput{
-    Username:String
-    Password:String
-    email:String
 }
 
 type Mutation{
-    createPost(post:PostInput):Demo
+    createPost(
+        Username:String!
+        Password:String!
+        email:String!
+        ):Demo
 }
 `;
 
 module.exports=typeDefs;
+
+// will use later for login 
+// input PostInput{
+//     Username:String
+//     Password:String
+//     email:String
+// }
